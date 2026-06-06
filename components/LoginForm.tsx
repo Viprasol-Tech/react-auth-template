@@ -56,7 +56,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
       className="flex w-full max-w-sm flex-col gap-4"
     >
       <div className="flex flex-col gap-1">
-        <label htmlFor="login-email" className="text-sm font-medium text-gray-700">
+        <label htmlFor="login-email" className="text-sm font-medium text-gray-700 dark:text-gray-200">
           Email
         </label>
         <input
@@ -68,7 +68,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
           onChange={(e) => setEmail(e.target.value)}
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? "login-email-error" : undefined}
-          className="rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
+          className="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
         />
         {errors.email && (
           <p id="login-email-error" role="alert" className="text-sm text-red-600">
@@ -80,7 +80,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
       <div className="flex flex-col gap-1">
         <label
           htmlFor="login-password"
-          className="text-sm font-medium text-gray-700"
+          className="text-sm font-medium text-gray-700 dark:text-gray-200"
         >
           Password
         </label>
@@ -95,7 +95,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
           aria-describedby={
             errors.password ? "login-password-error" : undefined
           }
-          className="rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
+          className="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
         />
         {errors.password && (
           <p

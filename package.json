@@ -1,7 +1,7 @@
 {
   "name": "react-auth-template",
-  "version": "0.1.0",
-  "description": "React/Next auth template - login/register forms, validation, session context.",
+  "version": "0.2.0",
+  "description": "React/Next auth template - login/register, password reset, email verification, OAuth abstraction, protected routes, session refresh, and a strong password meter.",
   "private": true,
   "license": "MIT",
   "author": "Viprasol Tech Private Limited",

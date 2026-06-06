@@ -3,11 +3,11 @@
 import { useState, type FormEvent } from "react";
 import { useAuth } from "@/lib/auth";
 import {
-  passwordStrength,
   validateEmail,
   validatePassword,
   validatePasswordConfirm,
 } from "@/lib/validation";
+import { PasswordStrengthMeter } from "./PasswordStrengthMeter";
 
 export interface RegisterFormProps {
   /** Called after a successful registration. */
@@ -32,8 +32,6 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [errors, setErrors] = useState<FieldErrors>({});
-
-  const strength = passwordStrength(password);
 
   function validate(): FieldErrors {
     const next: FieldErrors = {};
@@ -71,7 +69,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
       className="flex w-full max-w-sm flex-col gap-4"
     >
       <div className="flex flex-col gap-1">
-        <label htmlFor="reg-name" className="text-sm font-medium text-gray-700">
+        <label htmlFor="reg-name" className="text-sm font-medium text-gray-700 dark:text-gray-200">
           Name
         </label>
         <input
@@ -83,7 +81,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
           onChange={(e) => setName(e.target.value)}
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? "reg-name-error" : undefined}
-          className="rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
+          className="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
         />
         {errors.name && (
           <p id="reg-name-error" role="alert" className="text-sm text-red-600">
@@ -93,7 +91,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label htmlFor="reg-email" className="text-sm font-medium text-gray-700">
+        <label htmlFor="reg-email" className="text-sm font-medium text-gray-700 dark:text-gray-200">
           Email
         </label>
         <input
@@ -105,7 +103,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
           onChange={(e) => setEmail(e.target.value)}
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? "reg-email-error" : undefined}
-          className="rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
+          className="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
         />
         {errors.email && (
           <p id="reg-email-error" role="alert" className="text-sm text-red-600">
@@ -117,7 +115,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
       <div className="flex flex-col gap-1">
         <label
           htmlFor="reg-password"
-          className="text-sm font-medium text-gray-700"
+          className="text-sm font-medium text-gray-700 dark:text-gray-200"
         >
           Password
         </label>
@@ -130,18 +128,9 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
           onChange={(e) => setPassword(e.target.value)}
           aria-invalid={Boolean(errors.password)}
           aria-describedby={errors.password ? "reg-password-error" : undefined}
-          className="rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
+          className="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
         />
-        <div
-          aria-hidden
-          className="mt-1 h-1.5 w-full overflow-hidden rounded bg-gray-200"
-        >
-          <div
-            className="h-full bg-brand transition-all"
-            style={{ width: `${(strength.score / 4) * 100}%` }}
-          />
-        </div>
-        <p className="text-xs text-gray-500">Strength: {strength.label}</p>
+        <PasswordStrengthMeter password={password} />
         {errors.password && (
           <p
             id="reg-password-error"
@@ -156,7 +145,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
       <div className="flex flex-col gap-1">
         <label
           htmlFor="reg-confirm"
-          className="text-sm font-medium text-gray-700"
+          className="text-sm font-medium text-gray-700 dark:text-gray-200"
         >
           Confirm password
         </label>
@@ -169,7 +158,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
           onChange={(e) => setConfirm(e.target.value)}
           aria-invalid={Boolean(errors.confirm)}
           aria-describedby={errors.confirm ? "reg-confirm-error" : undefined}
-          className="rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
+          className="rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 outline-none focus:border-brand focus:ring-2 focus:ring-brand/30 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100"
         />
         {errors.confirm && (
           <p
