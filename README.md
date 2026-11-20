@@ -9,7 +9,7 @@
 
   <p>
     <a href="https://github.com/Viprasol-Tech/react-auth-template/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT" /></a>
-    <a href="https://github.com/Viprasol-Tech/react-auth-template"><img src="https://img.shields.io/badge/Next.js-14-black?logo=next.js" alt="Next.js 14" /></a>
+    <a href="https://github.com/Viprasol-Tech/react-auth-template"><img src="https://img.shields.io/badge/Next.js-15-black?logo=next.js" alt="Next.js 15" /></a>
     <a href="https://github.com/Viprasol-Tech/react-auth-template"><img src="https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white" alt="TypeScript strict" /></a>
     <a href="https://github.com/Viprasol-Tech/react-auth-template"><img src="https://img.shields.io/badge/tests-104%20passing-brightgreen?logo=vitest" alt="104 tests passing" /></a>
     <a href="https://github.com/Viprasol-Tech/react-auth-template"><img src="https://img.shields.io/badge/version-0.2.0-blue.svg" alt="Version 0.2.0" /></a>
